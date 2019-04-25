@@ -6,7 +6,7 @@ applicationName = 'addition'
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    implementation project(':shared_kernel')
+    compile project(':shared_kernel')
 
     compile "info.picocli:picocli:$picocli_version"
 

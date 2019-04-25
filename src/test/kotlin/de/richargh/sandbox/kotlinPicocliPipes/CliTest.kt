@@ -14,6 +14,6 @@ internal class CliTest {
 
     @Test
     fun `json output has one root node`() {
-        assertThat(cliResult, isEmptyString)
+        assertThat(cliResult, containsSubstring("Suppp"))
     }
 }

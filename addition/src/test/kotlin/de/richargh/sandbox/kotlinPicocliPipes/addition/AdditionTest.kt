@@ -8,72 +8,62 @@ import org.junit.jupiter.api.Test
 internal class AdditionTest {
 
     @Test
-    fun `cli prints nice message to the user`() {
+    fun `prints a message to the user if no numbers are provided`() {
         // arrange
-        val defaultHelloMessage = "Suppp"
+        val defaultHelloMessage = "Please provide numbers to add"
 
         // act
-        val cliResult = execute()
+        val cliResult = executeForOutput()
 
         // assert
         assertThat(cliResult, containsSubstring(defaultHelloMessage))
     }
 
     @Test
-    fun `cli prints what the user supplied (case A)`() {
+    fun `adds input number to 0`() {
         // arrange
-        val input = "My name is Bob"
+        val input = 3.0.toString()
 
         // act
-        val cliResult = execute(input)
+        val cliResult = executeForOutput(input)
 
         // assert
-        assertThat(cliResult, containsSubstring(input))
+        assertThat(cliResult, equalTo("$input\n"))
     }
 
     @Test
-    fun `cli prints what the user supplied (case B)`() {
+    fun `adds input number to parameters`() {
         // arrange
-        val input = "My name is Fran"
+        val input = 3.0.toString()
 
         // act
-        val cliResult = execute(input)
+        val cliResult = executeForOutput(input, arrayOf("1", "2"))
 
         // assert
-        assertThat(cliResult, containsSubstring(input))
+        assertThat(cliResult, equalTo("6.0\n"))
     }
 
     @Test
-    fun `cli prints help message if asked for it`() {
+    fun `prints help message if asked for it`() {
         // arrange
         val args = arrayOf("--help")
 
         // act
-        val cliResult = execute(args)
+        val cliResult = executeForOutput(args)
 
         // assert
         assertThat(cliResult, containsSubstring("Usage: Addition [-h]"))
     }
 
     @Test
-    fun `cli does not print help message by default`() {
+    fun `does not print help message by default`() {
         // arrange
         val args = emptyArray<String>()
 
         // act
-        val cliResult = execute(args)
+        val cliResult = executeForOutput(args)
 
         // assert
         assertThat(cliResult, !containsSubstring("Usage: Addition [-h]"))
     }
 }
-
-fun execute(input: String, args: Array<String> = emptyArray()) =
-        outputAsString(input) { inputStream, outputStream ->
-            mainWithInOut(inputStream, outputStream, args)
-        }
-
-fun execute(args: Array<String> = emptyArray()) =
-        outputAsString { inputStream, outputStream ->
-            mainWithInOut(inputStream, outputStream, args)
-        }

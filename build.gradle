@@ -26,8 +26,14 @@ subprojects {
 task addTest(type: Exec) { commandLine './scripts/add.sh' }
 task mulTest(type: Exec) { commandLine './scripts/mul.sh' }
 
-tasks.test.dependsOn addTest
-tasks.test.dependsOn mulTest
+//addTest.dependsOn build
+//mulTest.dependsOn build
+//addTest.dependsOn jar
+//mulTest.dependsOn jar
+//tasks.test.dependsOn addTest
+//tasks.test.dependsOn mulTest
+//tasks.preBuild.dependsOn mulTest
+
 
 wrapper {
     gradleVersion = '4.8.1'

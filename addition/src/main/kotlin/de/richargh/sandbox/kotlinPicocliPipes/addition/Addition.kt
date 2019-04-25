@@ -1,4 +1,4 @@
-package de.richargh.sandbox.kotlinPicocliPipes
+package de.richargh.sandbox.kotlinPicocliPipes.addition
 
 import picocli.CommandLine.*
 import java.io.IOException
@@ -8,9 +8,9 @@ import java.util.*
 import java.util.concurrent.Callable
 
 @Command(
-        name = "Cli",
-        description = ["generates cc.JSON from source code"])
-class Cli(private val input: InputStream, private val output: PrintStream): Callable<Void> {
+        name = "Addition",
+        description = ["adds values together"])
+class Addition(private val input: InputStream, private val output: PrintStream): Callable<Void> {
 
     @Option(names = ["-h", "--help"], usageHelp = true, description = ["displays this help and exits"])
     private var help = false
@@ -32,5 +32,5 @@ fun main(args: Array<String>) {
 }
 
 fun mainWithInOut(input: InputStream, output: PrintStream, args: Array<String>) {
-    call(Cli(input, output), output, *args)
+    call(Addition(input, output), output, *args)
 }

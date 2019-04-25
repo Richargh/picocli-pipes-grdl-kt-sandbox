@@ -1,5 +1,5 @@
 mainClassName = 'de.richargh.sandbox.kotlinPicocliPipes.CliKt'
-applicationName = 'sandboxCli'
+applicationName = 'addition'
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -12,7 +12,7 @@ dependencies {
 }
 
 jar {
-    archivesBaseName = "${applicationName}"
+    baseName "${applicationName}"
     manifest {
         attributes 'Main-Class': mainClassName,
                 'Implementation-Title': 'Sandbox Cli'

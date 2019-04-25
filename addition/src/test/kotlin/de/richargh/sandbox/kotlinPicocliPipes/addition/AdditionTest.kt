@@ -1,10 +1,12 @@
-package de.richargh.sandbox.kotlinPicocliPipes
+package de.richargh.sandbox.kotlinPicocliPipes.addition
 
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.*
+import de.richargh.sandbox.kotlinPicocliPipes.addition.mainWithInOut
+import de.richargh.sandbox.kotlinPicocliPipes.outputAsString
 import org.junit.jupiter.api.Test
 
-internal class CliTest {
+internal class AdditionTest {
 
     @Test
     fun `cli prints nice message to the user`() {
@@ -51,7 +53,7 @@ internal class CliTest {
         val cliResult = execute(args)
 
         // assert
-        assertThat(cliResult, containsSubstring("Usage: Cli [-h]"))
+        assertThat(cliResult, containsSubstring("Usage: Addition [-h]"))
     }
 
     @Test
@@ -63,12 +65,13 @@ internal class CliTest {
         val cliResult = execute(args)
 
         // assert
-        assertThat(cliResult, !containsSubstring("Usage: Cli [-h]"))
+        assertThat(cliResult, !containsSubstring("Usage: Addition [-h]"))
     }
 }
 
 fun execute(args: Array<String>) = execute("", args)
 
-fun execute(input: String = "", args: Array<String> = emptyArray()) = outputAsString(input) { inputStrean, outputStream ->
-    mainWithInOut(inputStrean, outputStream, args)
-}
+fun execute(input: String = "", args: Array<String> = emptyArray()) =
+        outputAsString(input) { inputStrean, outputStream ->
+            mainWithInOut(inputStrean, outputStream, args)
+        }

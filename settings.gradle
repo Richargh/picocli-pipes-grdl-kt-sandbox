@@ -1,3 +1,4 @@
-include 'multiply'
+include 'addition'
+include 'multiplication'
 
 rootProject.name = 'sandbox-kotlin-picocli-pipes'

@@ -1,8 +1,12 @@
+apply plugin: 'application'
+
 mainClassName = 'de.richargh.sandbox.kotlinPicocliPipes.CliKt'
 applicationName = 'multiply'
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    compile project(':shared_kernel')
     compile "info.picocli:picocli:$picocli_version"
 
     testCompile "org.junit.jupiter:junit-jupiter-engine:$junit_version"

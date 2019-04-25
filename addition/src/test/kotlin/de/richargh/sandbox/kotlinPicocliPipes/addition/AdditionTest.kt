@@ -2,8 +2,7 @@ package de.richargh.sandbox.kotlinPicocliPipes.addition
 
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.*
-import de.richargh.sandbox.kotlinPicocliPipes.addition.mainWithInOut
-import de.richargh.sandbox.kotlinPicocliPipes.outputAsString
+import de.richargh.sandbox.kotlinPicocliPipes.shared_kernel.outputAsString
 import org.junit.jupiter.api.Test
 
 internal class AdditionTest {
@@ -72,6 +71,6 @@ internal class AdditionTest {
 fun execute(args: Array<String>) = execute("", args)
 
 fun execute(input: String = "", args: Array<String> = emptyArray()) =
-        outputAsString(input) { inputStrean, outputStream ->
-            mainWithInOut(inputStrean, outputStream, args)
+        outputAsString(input) { inputStream, outputStream ->
+            mainWithInOut(inputStream, outputStream, args)
         }

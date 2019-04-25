@@ -3,7 +3,7 @@ package de.richargh.sandbox.kotlinPicocliPipes.multiplication
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.*
 import de.richargh.sandbox.kotlinPicocliPipes.multiplication.mainWithInOut
-import de.richargh.sandbox.kotlinPicocliPipes.outputAsString
+import de.richargh.sandbox.kotlinPicocliPipes.shared_kernel.outputAsString
 import org.junit.jupiter.api.Test
 
 internal class MultiplicationTest {

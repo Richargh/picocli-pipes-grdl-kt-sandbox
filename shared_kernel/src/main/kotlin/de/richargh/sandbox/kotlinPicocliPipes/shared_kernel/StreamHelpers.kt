@@ -1,4 +1,4 @@
-package de.richargh.sandbox.kotlinPicocliPipes
+package de.richargh.sandbox.kotlinPicocliPipes.shared_kernel
 
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream

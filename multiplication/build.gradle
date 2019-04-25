@@ -1,6 +1,6 @@
 apply plugin: 'application'
 
-mainClassName = 'de.richargh.sandbox.kotlinPicocliPipes.CliKt'
+mainClassName = 'de.richargh.sandbox.kotlinPicocliPipes.multiplication.MultiplicationKt'
 applicationName = 'multiply'
 
 dependencies {

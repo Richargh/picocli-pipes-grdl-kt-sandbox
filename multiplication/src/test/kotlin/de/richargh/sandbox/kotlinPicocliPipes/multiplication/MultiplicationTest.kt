@@ -69,8 +69,10 @@ internal class MultiplicationTest {
     }
 }
 
-fun execute(args: Array<String>) = execute("", args)
+fun execute(args: Array<String> = emptyArray()) = outputAsString { inputStrean, outputStream ->
+    mainWithInOut(inputStrean, outputStream, args)
+}
 
-fun execute(input: String = "", args: Array<String> = emptyArray()) = outputAsString(input) { inputStrean, outputStream ->
+fun execute(input: String, args: Array<String> = emptyArray()) = outputAsString(input) { inputStrean, outputStream ->
     mainWithInOut(inputStrean, outputStream, args)
 }

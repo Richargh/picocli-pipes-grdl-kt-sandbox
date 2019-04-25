@@ -68,9 +68,12 @@ internal class AdditionTest {
     }
 }
 
-fun execute(args: Array<String>) = execute("", args)
-
-fun execute(input: String = "", args: Array<String> = emptyArray()) =
+fun execute(input: String, args: Array<String> = emptyArray()) =
         outputAsString(input) { inputStream, outputStream ->
+            mainWithInOut(inputStream, outputStream, args)
+        }
+
+fun execute(args: Array<String> = emptyArray()) =
+        outputAsString { inputStream, outputStream ->
             mainWithInOut(inputStream, outputStream, args)
         }

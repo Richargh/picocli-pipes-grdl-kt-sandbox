@@ -1,10 +1,10 @@
 package de.richargh.sandbox.kotlinPicocliPipes.addition
 
+import de.richargh.sandbox.kotlinPicocliPipes.shared_kernel.forEachLine
 import picocli.CommandLine.*
 import java.io.IOException
 import java.io.InputStream
 import java.io.PrintStream
-import java.util.*
 import java.util.concurrent.Callable
 
 @Command(
@@ -19,9 +19,10 @@ class Addition(private val input: InputStream, private val output: PrintStream):
     override fun call(): Void? {
         output.println("Supppp")
 
-        val sc = Scanner(input)
         output.println("Passed in was:")
-        while (sc.hasNextLine()) output.println(sc.nextLine())
+        input.forEachLine {
+            output.println(it)
+        }
 
         return null
     }

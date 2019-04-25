@@ -1,0 +1,29 @@
+mainClassName = 'de.richargh.sandbox.kotlinPicocliPipes.CliKt'
+applicationName = 'sandboxCli'
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "info.picocli:picocli:$picocli_version"
+
+    testCompile "org.junit.jupiter:junit-jupiter-engine:$junit_version"
+    testCompile "org.junit.jupiter:junit-jupiter-api:$junit_version"
+    testCompile "org.junit.jupiter:junit-jupiter-params:$junit_version"
+    testCompile "com.natpryce:hamkrest:$hamkrest_version"
+}
+
+jar {
+    archivesBaseName = "${applicationName}"
+    manifest {
+        attributes 'Main-Class': mainClassName,
+                'Implementation-Title': 'Sandbox Cli'
+    }
+
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}

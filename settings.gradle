@@ -1,0 +1,3 @@
+include 'multiply'
+
+rootProject.name = 'sandbox-kotlin-picocli-pipes'

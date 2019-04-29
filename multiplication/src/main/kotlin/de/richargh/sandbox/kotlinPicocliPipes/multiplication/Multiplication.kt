@@ -27,7 +27,9 @@ class Multiplication(
     override fun call(): Void? {
         val console = Console(output, error, false, false)
 
+        error.println("Available Multiplication input bytes: ${input.available()}")
         val inputNumbers = input.mapLines {
+            error.println("Multiplication line is '$it'")
             it.toDoubleOrNull()
         }.filterNotNull()
 

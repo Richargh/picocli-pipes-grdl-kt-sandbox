@@ -1,6 +1,7 @@
 include 'shared_kernel'
 
 include 'addition'
+include 'subtraction'
 include 'multiplication'
 
 rootProject.name = 'sandbox-kotlin-picocli-pipes'
